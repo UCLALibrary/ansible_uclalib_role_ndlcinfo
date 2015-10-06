@@ -3,4 +3,4 @@
 - command: /bin/find /var/www/html/ -type f | xargs chmod 664
 - command: /bin/find /var/www/html/ -type d | xargs chmod 775
 - command: /bin/find /var/www/html/ -type d | xargs chmod +s
-- copy: src=/files/htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=www-data mode=640
+- copy: src=/etc/ansible/roles/ndlc.info/files/htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=www-data mode=640

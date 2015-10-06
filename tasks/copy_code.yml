@@ -1,2 +1,2 @@
 - name: Copy code from repository
-  git: repo={{ repository }} dest=/var/www/html
+  git: repo={{ repository }} dest=/var/www/html accept_hostkey=yes

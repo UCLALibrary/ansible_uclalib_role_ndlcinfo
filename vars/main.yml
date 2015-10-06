@@ -1,2 +1,4 @@
 ---
 # vars file for ndlc.info
+httpd_port: 80
+repository: https://github.com/UCLALibrary/ndlc.info.git
