@@ -1,3 +1,6 @@
+- name: Install Repos
+  yum: name=https://mirror.webtatic.com/yum/el6/latest.rpm state=present
+
 - name: Install Apache and PHP
   yum: name={{ item }} state=present
   with_items:
