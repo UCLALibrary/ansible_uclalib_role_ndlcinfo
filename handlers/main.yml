@@ -1,2 +1,4 @@
 ---
 # handlers file for ndlc.info
+- name: restart iptables
+  service: name=iptables state=restarted

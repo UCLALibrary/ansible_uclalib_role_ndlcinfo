@@ -1,2 +1,4 @@
 ---
 # tasks file for ndlc.info
+- include: install_http.yml
+- include: copy_code.yml

@@ -1,0 +1,18 @@
+- name: Install Apache and PHP
+  yum: name={{ item }} state=present
+  with_items:
+    - httpd
+    - php54w
+    - php54w-cli
+    - php54w-common
+    - php54w-gd
+    - php54w-mbstring
+    - git
+
+- name: IPTables for Apache
+  lineinfile: dest=/etc/sysconfig/iptables create=yes state=present regexp="{{ httpd_port }}" insertafter="^:OUTPUT " line="-A INPUT -p tcp  --dport {{ httpd_port }} -j  ACCEPT"
+  notify: restart iptables
+
+- name: Apache service state
+  service: name=httpd state=started enabled=yes
+

@@ -1,0 +1,6 @@
+# Prep Grav
+- command: /bin/chgrp -R www-data /var/www/html/ndlc.info
+- command: /bin/find /var/www/html/ -type f | xargs chmod 664
+- command: /bin/find /var/www/html/ -type d | xargs chmod 775
+- command: /bin/find /var/www/html/ -type d | xargs chmod +s
+- copy: src=/files/htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=www-data mode=640
