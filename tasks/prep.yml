@@ -1,5 +1,5 @@
 # Prep Grav
-- command: /bin/chgrp -R www-data /var/www/html/ndlc.info
+- command: /bin/chgrp -R apache /var/www/html/ndlc.info
 - command: /bin/find /var/www/html/ -type f | xargs chmod 664
 - command: /bin/find /var/www/html/ -type d | xargs chmod 775
 - command: /bin/find /var/www/html/ -type d | xargs chmod +s
