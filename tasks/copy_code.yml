@@ -1,2 +1,6 @@
+- name: Install Grav
+  git: repo=https://github.com/getgrav/grav.git dest=/var/www/html/ndlc.info
+- command: /var/www/html/ndlc/info/grav/bin/grav install
+
 - name: Copy code from repository
-  git: repo={{ repository }} dest=/var/www/html/ndlc.info accept_hostkey=yes
+  git: repo={{ repository }} dest=/var/www/html/ndlc.info/user accept_hostkey=yes
