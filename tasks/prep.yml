@@ -1,7 +1,8 @@
 # Prep Grav
 - command: /bin/chgrp -R apache /var/www/html/ndlc.info
-- command: /bin/find /var/www/html/* -type f | xargs chmod 664
-- command: /bin/find /var/www/html/* -type d | xargs chmod 775
-- command: /bin/find /var/www/html/* -type d | xargs chmod +s
-- copy: src=/etc/ansible/roles/ndlc.info/files/htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=www-data mode=640
-- copy: src=/etc/ansible/roles/ndlc.info/files/httpd.conf dest=/etc/httpd/httpd.conf owner=root group=root mode=644
+- command: bash -c "find /var/www/html/ndlc.info -type f | xargs chmod 664"
+- command: bash -c "find /var/www/html/ndlc.info -type d | xargs chmod 775"
+- command: bash -c "find /var/www/html/ndlc.info -type d | xargs chmod +s"
+- command: bash -c "echo 'umask 0002' > /etc/sysconfig/httpd"
+- copy: src=/etc/ansible/roles/ndlc.info/files/htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=apache mode=0640
+- copy: src=/etc/ansible/roles/ndlc.info/files/httpd.conf dest=/etc/httpd/httpd.conf owner=root group=root mode=0640

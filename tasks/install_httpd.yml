@@ -16,6 +16,8 @@
   lineinfile: dest=/etc/sysconfig/iptables create=yes state=present regexp="{{ httpd_port }}" insertafter="^:OUTPUT " line="-A INPUT -p tcp  --dport {{ httpd_port }} -j  ACCEPT"
   notify: restart iptables
 
+- copy: src=/etc/ansible/roles/ndlc.info/files/httpd.conf dest=/etc/httpd/conf/httpd.conf owner=root group=root mode=644
+
 - name: Apache service state
   service: name=httpd state=started enabled=yes
 

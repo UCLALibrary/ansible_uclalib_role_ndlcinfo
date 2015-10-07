@@ -1,6 +1,19 @@
 - name: Install Grav
   git: repo=https://github.com/getgrav/grav.git dest=/var/www/html/ndlc.info
-- command: /var/www/html/ndlc/info/grav/bin/grav install
+
+- name: install composer
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin creates=/usr/local/bin/composer
+  tags: composer
+
+- name: rename composer.phar to composer
+  shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
+  tags: composer
+
+- name: make composer executable
+  file: path=/usr/local/bin/composer mode=a+x state=file
+  tags: composer
 
 - name: Copy code from repository
-  git: repo={{ repository }} dest=/var/www/html/ndlc.info/user accept_hostkey=yes
+  git: repo={{ repository }} dest=/var/www/html/ndlc.info/user/ndlc.info accept_hostkey=yes 
+
+- command: /var/www/html/ndlc.info/bin/grav install chdir=/var/www/html/ndlc.info
