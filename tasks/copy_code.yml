@@ -14,6 +14,9 @@
   tags: composer
 
 - name: Copy code from repository
-  git: repo={{ repository }} dest=/var/www/html/ndlc.info/user/ndlc.info accept_hostkey=yes 
+  git: repo={{ repository }} dest=/var/www/html/ndlc.info/ndlc.info accept_hostkey=yes 
+
+- command: bash -c "rm -rf /var/www/html/ndlc.info/user"
+- file: src=/var/www/html/ndlc.info/ndlc.info path=/var/www/html/ndlc.info/user state=link force=yes
 
 - command: /var/www/html/ndlc.info/bin/grav install chdir=/var/www/html/ndlc.info
