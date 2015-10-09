@@ -20,3 +20,4 @@
 - file: src=/var/www/html/ndlc.info/ndlc.info path=/var/www/html/ndlc.info/user state=link force=yes
 
 - command: /var/www/html/ndlc.info/bin/grav install chdir=/var/www/html/ndlc.info
+- copy: src=/etc/ansible/roles/ndlc.info/files/casey.yml dest=/var/www/html/ndlc.info/user/accounts/casey.yml 

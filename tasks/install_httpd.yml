@@ -1,16 +1,17 @@
-- name: Install Repos
-  yum: name=https://mirror.webtatic.com/yum/el6/latest.rpm state=present
+- command: subscription-manager repos --enable=rhel-server-rhscl-6-rpms
 
 - name: Install Apache and PHP
   yum: name={{ item }} state=present
   with_items:
     - httpd
-    - php54w
-    - php54w-cli
-    - php54w-common
-    - php54w-gd
-    - php54w-mbstring
+    - php54
+    - php54-php-cli
+    - php54-php-common
+    - php54-php-gd
+    - php54-php-mbstring
     - git
+
+#- command: source /opt/rh/php54/enable
 
 - name: IPTables for Apache
   lineinfile: dest=/etc/sysconfig/iptables create=yes state=present regexp="{{ httpd_port }}" insertafter="^:OUTPUT " line="-A INPUT -p tcp  --dport {{ httpd_port }} -j  ACCEPT"
