@@ -9,9 +9,10 @@
     - php54-php-common
     - php54-php-gd
     - php54-php-mbstring
+    - php65-php
     - git
 
-#- command: source /opt/rh/php54/enable
+##- command: source /opt/rh/php54/enable
 
 - name: IPTables for Apache
   lineinfile: dest=/etc/sysconfig/iptables create=yes state=present regexp="{{ httpd_port }}" insertafter="^:OUTPUT " line="-A INPUT -p tcp  --dport {{ httpd_port }} -j  ACCEPT"
