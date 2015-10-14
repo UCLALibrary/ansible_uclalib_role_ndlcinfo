@@ -2,7 +2,7 @@
   git: repo=https://github.com/getgrav/grav.git dest=/var/www/html/stage.ndlc.info force=yes
 
 - name: Copy code from repository
-  git: repo={{ repository }} dest=/var/www/html/stage.ndlc.info/ndlc.info accept_hostkey=yes force=yes version={{ branch }}
+  git: repo={{ repository }} dest=/var/www/html/stage.ndlc.info/ndlc.info accept_hostkey=yes force=yes version=master
 
 - command: bash -c "rm -rf /var/www/html/stage.ndlc.info/user"
 - file: src=/var/www/html/stage.ndlc.info/ndlc.info path=/var/www/html/stage.ndlc.info/user state=link force=yes
