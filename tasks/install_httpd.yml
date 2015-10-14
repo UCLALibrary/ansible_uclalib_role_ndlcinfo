@@ -21,7 +21,7 @@
 - copy: src=/etc/ansible/roles/ndlc.info/files/httpd.conf dest=/etc/httpd/conf/httpd.conf owner=root group=root mode=644
 
 - name: Apache service state
-  service: name=httpd state=restarted enabled=yes
+  service: name=httpd state=started enabled=yes
 
 - name: install composer
   shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin creates=/usr/local/bin/composer

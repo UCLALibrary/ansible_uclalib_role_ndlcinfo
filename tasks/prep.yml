@@ -6,3 +6,5 @@
 - command: bash -c "echo 'umask 0002' > /etc/sysconfig/httpd"
 - copy: src=htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=apache mode=0640
 - copy: src=httpd.conf dest=/etc/httpd/httpd.conf owner=root group=root mode=0640
+- name: restart Apache service state
+  service: name=httpd state=restarted enabled=yes
