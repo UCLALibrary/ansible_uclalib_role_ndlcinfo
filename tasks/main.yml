@@ -2,4 +2,6 @@
 # tasks file for ndlc.info
 - include: install_httpd.yml
 - include: copy_code.yml
+- include: copy_code_stage.yml
 - include: prep.yml
+- include: prep_stage.yml
