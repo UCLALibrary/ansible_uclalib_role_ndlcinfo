@@ -2,5 +2,5 @@
 - command: bash -c "find /var/www/html/stage.ndlc.info -type f | xargs chmod 664"
 - command: bash -c "find /var/www/html/stage.ndlc.info -type d | xargs chmod 775"
 - command: bash -c "find /var/www/html/stage.ndlc.info -type d | xargs chmod +s"
-- copy: src=/etc/ansible/roles/ndlc.info/files/htaccess_git dest=/var/www/html/stage.ndlc.info/.git/.htaccess owner=root group=apache mode=0640
-- copy: src=/etc/ansible/roles/ndlc.info/files/stage.ndlc.info.conf dest=/etc/httpd/conf.d/stage.ndlc.info.conf owner=root group=root mode=644
+- copy: src=htaccess_git dest=/var/www/html/stage.ndlc.info/.git/.htaccess owner=root group=apache mode=0640
+- copy: src=stage.ndlc.info.conf dest=/etc/httpd/conf.d/stage.ndlc.info.conf owner=root group=root mode=644
