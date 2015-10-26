@@ -1,8 +1,8 @@
 # Prep Grav
 - command: /bin/chgrp -R apache /var/www/html/ndlc.info
-- command: bash -c "find /var/www/html/ndlc.info -type f | xargs chmod 664"
-- command: bash -c "find /var/www/html/ndlc.info -type d | xargs chmod 775"
-- command: bash -c "find /var/www/html/ndlc.info -type d | xargs chmod +s"
+- command: bash -c "find /var/www/html/ndlc.info -type f -print0 | xargs -0 chmod 664"
+- command: bash -c "find /var/www/html/ndlc.info -type d -print0 | xargs -0 chmod 775"
+- command: bash -c "find /var/www/html/ndlc.info -type d -print0 | xargs -0 chmod +s"
 - command: bash -c "echo 'umask 0002' > /etc/sysconfig/httpd"
 - copy: src=htaccess_git dest=/var/www/html/ndlc.info/.git/.htaccess owner=root group=apache mode=0640
 - copy: src=httpd.conf dest=/etc/httpd/httpd.conf owner=root group=root mode=0640
