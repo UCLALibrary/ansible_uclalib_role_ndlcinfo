@@ -14,7 +14,7 @@
 
 ##- command: source /opt/rh/php54/enable
 
-- cron: name="copy proposals" minute="0" hour="1" job="rsync -r -v --ignore-existing /var/www/html/ndlc.info/ndlc.info/data/callForProposals/* /mnt"
+- cron: name="copy proposals" minute="0" hour="1" job="rsync -r -v --ignore-existing /var/www/html/ndlc.info/ndlc.info/data/callForProposals/* /mnt > /dev/null 2>&1"
 
 - name: IPTables for Apache
   lineinfile: dest=/etc/sysconfig/iptables create=yes state=present regexp="{{ httpd_port }}" insertafter="^:OUTPUT " line="-A INPUT -p tcp  --dport {{ httpd_port }} -j  ACCEPT"
