@@ -1,5 +1,5 @@
 - name: Install Grav
-  git: repo=https://github.com/getgrav/grav.git dest=/var/www/html/stage.ndlc.info force=yes
+  git: repo=https://github.com/getgrav/grav.git dest=/var/www/html/stage.ndlc.info force=yes version=1.0.0-rc.2
 
 - name: Copy code from repository
   git: repo={{ repository }} dest=/var/www/html/stage.ndlc.info/ndlc.info accept_hostkey=yes force=yes version={{ branch }}
